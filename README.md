@@ -40,21 +40,27 @@ The current **Streamlit prototype** successfully implements the core AI workflow
 *   **Input:** Hindi text ("अगले 48 घंटों में, सभी बैंक अनिश्चित काल के लिए बंद हो जाएंगे...")
 *   **Result Highlight:** Successfully detects Hindi input, translates for analysis, and assigns a high initial score (Misinfo Score **0.93**). Since no external checks were found, the system still confidently flags the high-risk claim with **Final Confidence 76 / Fake**, relying on the internal crisis logic.
 
-`![TruthLens Analysis of Multilingual Bank Hoax - Final Confidence 76](assets/demo1.png)`
+<p align="center">
+  <img src="assets/demo1.png" alt="TruthLens Analysis of Multilingual Bank Hoax - Final Confidence 76" width="600"/>
+</p>
 
 ### Demo 2: Financial Hoax Override (PIB Validation)
 
 *   **Input:** English text ("The Government of India is giving 5000 rupees subsidy... Send your account details immediately on WhatsApp...")
 *   **Result Highlight:** The AI Analyzer gave a moderate initial score (**0.56 / Unclear**), but the Fact Verification Layer immediately found a **PIB Fact Check: False** result. This external evidence **overrode** the internal score, locking the verdict to **Final Confidence 95 / Fake**, demonstrating the stability logic in action.
 
-`[INSERT SCREENSHOT 3 IMAGE HERE (Test Input 9: Subsidy/PIB Check)]`
+<p align="center">
+  <img src="assets/demo2.png" alt="TruthLens Financial Hoax Override - PIB Validation" width="600"/>
+</p>
 
 ### Demo 3: Health Crisis Verification (WHO Validation)
 
 *   **Input:** English text ("Drinking hot salt water cures the pandemic virus confirmed by the WHO.")
 *   **Result Highlight:** The system quickly identifies the claim, finds a corresponding **WHO Fact-check: False** result, and delivers the highest confidence verdict: **Final Confidence 95 / Fake**, complete with source links and multilingual explanations.
 
-`[INSERT SCREENSHOT 2 IMAGE HERE (Test Input 8: Salt Water/WHO Check)]`
+<p align="center">
+  <img src="assets/demo3.png" alt="TruthLens Health Crisis Verification - WHO Validation" width="600"/>
+</p>
 
 ## 🏗️ System Architecture & Technology Stack
 
@@ -100,6 +106,7 @@ TruthLens aims to go beyond a simple tool. With continued enhancement—includin
 
 ---
 *We are excited to build with innovation and impact at MumbaiHacks 2025!*
+
 
 
 
