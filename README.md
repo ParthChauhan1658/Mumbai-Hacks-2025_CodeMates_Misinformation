@@ -40,7 +40,7 @@ The current **Streamlit prototype** successfully implements the core AI workflow
 *   **Input:** Hindi text ("अगले 48 घंटों में, सभी बैंक अनिश्चित काल के लिए बंद हो जाएंगे...")
 *   **Result Highlight:** Successfully detects Hindi input, translates for analysis, and assigns a high initial score (Misinfo Score **0.93**). Since no external checks were found, the system still confidently flags the high-risk claim with **Final Confidence 76 / Fake**, relying on the internal crisis logic.
 
-`[TruthLens Analysis of Multilingual Bank Hoax - Final Confidence 76](Mumbai-Hacks-2025_CodeMates_Misinformation/demo 1.png)`
+`![TruthLens Analysis of Multilingual Bank Hoax - Final Confidence 76](Mumbai-Hacks-2025_CodeMates_Misinformation/demo 1.png)`
 
 ### Demo 2: Financial Hoax Override (PIB Validation)
 
@@ -100,4 +100,5 @@ TruthLens aims to go beyond a simple tool. With continued enhancement—includin
 
 ---
 *We are excited to build with innovation and impact at MumbaiHacks 2025!*
+
 
