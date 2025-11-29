@@ -41,7 +41,7 @@ The current **Streamlit prototype** successfully implements the core AI workflow
 *   **Result Highlight:** Successfully detects Hindi input, translates for analysis, and assigns a high initial score (Misinfo Score **0.93**). Since no external checks were found, the system still confidently flags the high-risk claim with **Final Confidence 76 / Fake**, relying on the internal crisis logic.
 
 <p align="center">
-  <img src="assets/demo1.png" alt="TruthLens Analysis of Multilingual Bank Hoax - Final Confidence 76" width="600"/>
+  <img src="assets/demo 1.png" alt="TruthLens Analysis of Multilingual Bank Hoax - Final Confidence 76" width="600"/>
 </p>
 
 ### Demo 2: Financial Hoax Override (PIB Validation)
@@ -50,7 +50,7 @@ The current **Streamlit prototype** successfully implements the core AI workflow
 *   **Result Highlight:** The AI Analyzer gave a moderate initial score (**0.56 / Unclear**), but the Fact Verification Layer immediately found a **PIB Fact Check: False** result. This external evidence **overrode** the internal score, locking the verdict to **Final Confidence 95 / Fake**, demonstrating the stability logic in action.
 
 <p align="center">
-  <img src="assets/demo2.png" alt="TruthLens Financial Hoax Override - PIB Validation" width="600"/>
+  <img src="assets/demo 2.png" alt="TruthLens Financial Hoax Override - PIB Validation" width="600"/>
 </p>
 
 ### Demo 3: Health Crisis Verification (WHO Validation)
@@ -59,7 +59,7 @@ The current **Streamlit prototype** successfully implements the core AI workflow
 *   **Result Highlight:** The system quickly identifies the claim, finds a corresponding **WHO Fact-check: False** result, and delivers the highest confidence verdict: **Final Confidence 95 / Fake**, complete with source links and multilingual explanations.
 
 <p align="center">
-  <img src="assets/demo3.png" alt="TruthLens Health Crisis Verification - WHO Validation" width="600"/>
+  <img src="assets/demo 3.png" alt="TruthLens Health Crisis Verification - WHO Validation" width="600"/>
 </p>
 
 ## 🏗️ System Architecture & Technology Stack
@@ -106,6 +106,7 @@ TruthLens aims to go beyond a simple tool. With continued enhancement—includin
 
 ---
 *We are excited to build with innovation and impact at MumbaiHacks 2025!*
+
 
 
 
