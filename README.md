@@ -1,24 +1,24 @@
 # 🛡️ TruthLens: AI-Powered Misinformation Detector & Explainer
 
 **Track: Misinformation | Event: MumbaiHacks 2025**
-***Team: CodeMates*** | *Members: Bhumi Shetty, Parth Chauhan*
+***Team: CodeMates***
 
 ---
 
 ## 💡 The Problem We Solved
 
-During crises (pandemics, elections, natural disasters), misinformation spreads rapidly on digital platforms. **People struggle to identify credible information**, leading to panic, mistrust, and **misinformation-driven harm** [1, 2]. We focused on building an easily accessible, real-time verification system to provide contextual explanations [2].
+During crises (pandemics, elections, natural disasters), misinformation spreads rapidly on digital platforms. **People struggle to identify credible information**, leading to panic, mistrust, and **misinformation-driven harm**. We focused on building an easily accessible, real-time verification system to provide contextual explanations.
 
 ## 🎯 Our Objective & Solution
 
-We built **TruthLens**, an **AI-powered system** designed to **detect, verify, and explain misinformation in real-time** [2].
+We built **TruthLens**, an **AI-powered system** designed to **detect, verify, and explain misinformation in real-time**, focusing on high-impact claims spread during crises.
 
-### The Integrated AI Workflow [3]
+### The Integrated AI Workflow
 
 TruthLens utilizes a multi-layered workflow to ensure reliability and speed:
 
-1.  **AI Analyzer:** Uses **NLP models (BERT/RoBERTa/GPT)** to detect patterns of misinformation and performs Emotion & Sensationalism Detection.
-2.  **Fact Verification:** Cross-checks claims with **trusted APIs** including **Google Fact Check, PIB, WHO, and Reuters**.
+1.  **AI Analyzer:** Uses NLP models (BERT/RoBERTa/GPT) to detect patterns of misinformation and performs Emotion & Sensationalism Detection.
+2.  **Fact Verification:** Cross-checks claims with trusted APIs including Google Fact Check, PIB, WHO, and Reuters.
 3.  **Explainable Verdict:** Delivers a clear prediction (**Fake / Real / Unclear**) with a **Confidence Score**.
 4.  **Multilingual Support:** The Explanation Generator converts fact-check data into short, easy-to-understand summaries, supporting **English, Hindi, and Marathi**.
 
@@ -26,32 +26,35 @@ TruthLens utilizes a multi-layered workflow to ensure reliability and speed:
 
 | Innovation | Function / Impact |
 | :--- | :--- |
-| **Crisis Stability Logic** | Priority logic ensures high-risk claims (e.g., hoaxes about bank closures [4, 5] or government subsidies [6, 7]) receive a high-confidence **Fake** verdict, even if internal AI scores are inconclusive, by prioritizing external validation (e.g., WHO, PIB [6, 8]). |
-| **Cross-Platform Access** | Developing the solution for instant verification via a **Chrome extension** and **WhatsApp bot** [9]. |
-| **Multilingual Explainer** | Full system support for **English, Hindi, and Marathi** summaries [3, 7, 10]. |
-| **Trend Mapping** | Utilizes data stored in **MongoDB** to enable a **Misinformation Trend Map** for real-time regional insights [11]. |
+| **Crisis Stability Logic** | Priority logic ensures high-risk claims (e.g., hoaxes about bank closures or government subsidies) receive a high-confidence **Fake** verdict, even if internal AI scores are inconclusive, by prioritizing external validation (e.g., WHO, PIB). |
+| **Cross-Platform Access** | Developing the solution for instant verification via a **Chrome extension** and **WhatsApp bot**. |
+| **Multilingual Explainer** | Full system support for **English, Hindi, and Marathi** summaries throughout the analysis pipeline. |
+| **Trend Mapping** | Utilizes data stored in MongoDB to enable a **Misinformation Trend Map** for real-time regional insights. |
 
-## 💻 Prototype Demo
+## 💻 Prototype Demo: High-Confidence Verification
 
-The current **Streamlit prototype** demonstrates the User Input Layer and the full analysis pipeline, resulting in a confidence score and a clear, multilingual explanation.
+The current **Streamlit prototype** successfully implements the core AI workflow, demonstrating how TruthLens handles various types of high-risk claims.
 
-### Screenshot 1: Bank Hoax Analysis (Hindi Input)
+### Demo 1: Multilingual Bank Hoax (Internal Reliance)
 
-*Demonstrates multilingual processing and internal score reliance when external checks fail.*
+*   **Input:** Hindi text ("अगले 48 घंटों में, सभी बैंक अनिश्चित काल के लिए बंद हो जाएंगे...")
+*   **Result Highlight:** Successfully detects Hindi input, translates for analysis, and assigns a high initial score (Misinfo Score **0.93**). Since no external checks were found, the system still confidently flags the high-risk claim with **Final Confidence 76 / Fake**, relying on the internal crisis logic.
 
-`[INSERT SCREENSHOT 1 IMAGE HERE]`
+`[INSERT SCREENSHOT 1 IMAGE HERE (Test Input 7: Bank Hoax)]`
 
-### Screenshot 2: Health Hoax Analysis (WHO Check)
+### Demo 2: Financial Hoax Override (PIB Validation)
 
-*Demonstrates high-confidence verdict (95) based on external fact-check overriding internal scores.*
+*   **Input:** English text ("The Government of India is giving 5000 rupees subsidy... Send your account details immediately on WhatsApp...")
+*   **Result Highlight:** The AI Analyzer gave a moderate initial score (**0.56 / Unclear**), but the Fact Verification Layer immediately found a **PIB Fact Check: False** result. This external evidence **overrode** the internal score, locking the verdict to **Final Confidence 95 / Fake**, demonstrating the stability logic in action.
 
-`[INSERT SCREENSHOT 2 IMAGE HERE]`
+`[INSERT SCREENSHOT 3 IMAGE HERE (Test Input 9: Subsidy/PIB Check)]`
 
-### Screenshot 3: Financial Hoax Analysis (PIB Check)
+### Demo 3: Health Crisis Verification (WHO Validation)
 
-*Demonstrates external fact-check (PIB) overriding a low internal score (0.56) to lock the verdict to 95/Fake [6].*
+*   **Input:** English text ("Drinking hot salt water cures the pandemic virus confirmed by the WHO.")
+*   **Result Highlight:** The system quickly identifies the claim, finds a corresponding **WHO Fact-check: False** result, and delivers the highest confidence verdict: **Final Confidence 95 / Fake**, complete with source links and multilingual explanations.
 
-`[INSERT SCREENSHOT 3 IMAGE HERE]`
+`[INSERT SCREENSHOT 2 IMAGE HERE (Test Input 8: Salt Water/WHO Check)]`
 
 ## 🏗️ System Architecture & Technology Stack
 
@@ -59,9 +62,9 @@ The current **Streamlit prototype** demonstrates the User Input Layer and the fu
 | :--- | :--- |
 | **Frontend (Prototype)** | Streamlit (Python) |
 | **Core Logic** | Python, NLP Libraries |
-| **AI / ML Models** | BERT / RoBERTa / GPT (Simulated Proxies) [3] |
-| **Data Storage** | MongoDB (Used for Verified Claims & Trend Insights) [11] |
-| **External Verification**| Google Fact Check API, PIB, WHO [3] |
+| **AI / ML Models** | BERT / RoBERTa / GPT (Simulated Proxies) |
+| **Data Storage** | MongoDB (Used for Verified Claims & Trend Insights) |
+| **External Verification**| Google Fact Check API, PIB, WHO |
 
 ## 🚀 Getting Started
 
@@ -93,7 +96,7 @@ This repository contains the minimal Streamlit prototype (`app.py`) for the Trut
 
 ## 📈 Future Vision
 
-TruthLens aims to go beyond a simple tool. With continued enhancement—including launching the **Chrome extension** and **WhatsApp bot**, and beginning **partnership** with verified fact-checkers [9]—this system can serve as a **national-level misinformation control platform**, enhancing public trust and encouraging responsible digital consumption [12].
+TruthLens aims to go beyond a simple tool. With continued enhancement—including launching the **Chrome extension** and **WhatsApp bot**, and establishing **partnership** with verified fact-checkers—this system is poised to serve as a **national-level misinformation control platform**, enhancing public trust and encouraging responsible digital consumption.
 
 ---
-*We're excited to build with innovation and impact at MumbaiHacks 2025! [12]*
+*We are excited to build with innovation and impact at MumbaiHacks 2025!*
